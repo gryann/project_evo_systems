@@ -1,0 +1,61 @@
+<div class="container">
+    <h3 class="d-flex justify-content-center">PROJETO EVO SYSTEMS</h3>
+    
+
+    <nav class="navbar navbar-expand-sm bg-light navbark-dark">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <button class="m-1 btn btn-light btn-outline-primary" Button
+            label = "HomeScreen"
+            [routerLink]="['']"
+            (click) = "HomeScreen=true;">
+            Home
+          </button>
+        </ul>
+      </nav>
+    
+    <app-home *ngIf="HomeScreen"></app-home>
+    
+<div style="overflow:auto;">
+    <div class="mat-elevation-z8">
+
+        <mat-table [dataSource]="list_data" matSort>
+            <mat-header-row *matHeaderRowDef="show_columns"></mat-header-row>
+            <mat-row *matRowDef="let row; columns:show_columns;"></mat-row>
+
+            <ng-container matColumnDef="Foto">
+                <mat-header-cell *matHeaderCellDef> Foto </mat-header-cell>
+                <mat-header-cell *matCellDef="let element"> <img [src]="element.image" class="functionary-image" /> </mat-header-cell>
+            </ng-container>
+
+            <ng-container matColumnDef="Nome">
+                <mat-header-cell *matHeaderCellDef>Nome</mat-header-cell>
+                <mat-header-cell *matCellDef="let element" >{{element.name}}</mat-header-cell>
+            </ng-container>
+
+            <ng-container matColumnDef="RG">
+                <mat-header-cell *matHeaderCellDef>RG</mat-header-cell>
+                <mat-header-cell *matCellDef="let element">{{element.RG}}</mat-header-cell>
+            </ng-container>
+
+            <ng-container matColumnDef="Opções">
+                <mat-header-cell *matHeaderCellDef>Opções</mat-header-cell>
+                <mat-cell *matCellDef="let row">
+                    <button class="btn-edit" (click)="onEdit(row)">
+                        <span class="material-icons">
+                            edit
+                        </span>
+                    </button>
+
+                    <button class="btn-del" (click)="onDelete(row.id)">
+                        <span class="material-icons">
+                            delete
+                        </span>
+                    </button>
+                </mat-cell>
+            </ng-container>
+        </mat-table>
+    </div>
+</div>
+<button class="mt-2" mat-raised-button (click)="onCreate()" color="primary">Novo Funcionário</button>
+</div>

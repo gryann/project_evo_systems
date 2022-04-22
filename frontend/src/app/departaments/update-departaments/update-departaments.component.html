@@ -1,0 +1,50 @@
+<div class="d-flex justify-content-between m-3">
+    <h4>Editar Departamento</h4>
+    
+    <button mat-button (click)="onClose()">
+        <span class="material-icons">
+            close
+        </span>
+    </button>
+    
+    </div>
+    
+    <div style="overflow: auto; height: 450px;">
+        <form #form="ngForm" (submit)="onSubmit(form)" autocomplete="off">
+
+            <div class="mt-3 input-group">
+                <div class="input-group-prepend">
+                    <span class="input-group-text">Nome</span>
+                </div>
+                <input required minlength="2" type="text"
+                class="form-control"
+                name="name"
+                #name="ngModel"
+                [(ngModel)]="service.form_data.name">
+            </div>
+            <div class="text-left text-danger"
+            *ngIf="name.invalid && name.touched">
+            Por favor, estabeleça um nome ao departamento.
+        </div>
+
+            <div class="mt-3 input-group">
+                <div class="input-group-prepend">
+                    <span class="input-group-text">Sigla</span>
+                </div>
+                <input required minlength="2" type="text"
+                class="form-control"
+                name="initials"
+                #initials="ngModel"
+                [(ngModel)]="service.form_data.initials">
+            </div>
+            <div class="text-left text-danger"
+            *ngIf="initials.invalid && initials.touched">
+            Por favor, estabeleça uma sigla ao departamento.
+        </div>
+    
+        <button class="mt-3" mat-raised-button
+        color="primary" type="submit"
+        [disabled]="form.invalid">Editar Departamento</button>
+    
+        </form>
+    </div>

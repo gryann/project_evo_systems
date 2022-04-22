@@ -1,0 +1,15 @@
+.functionary-image {
+  max-width:100px;
+  max-height:80px;
+  width: auto;
+  height: auto;
+}
+
+.btn {
+  background-color: white;
+  outline-color: white;
+  color: black;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+}

@@ -1,0 +1,44 @@
+<div style="overflow:auto;">
+    <div class="mat-elevation-z8">
+
+        <mat-table [dataSource]="list_data" matSort>
+            <mat-header-row *matHeaderRowDef="show_columns"></mat-header-row>
+            <mat-row *matRowDef="let row; columns:show_columns;"></mat-row>
+
+            <ng-container matColumnDef="Nome">
+                <mat-header-cell *matHeaderCellDef>Nome</mat-header-cell>
+                <mat-header-cell *matCellDef="let element">{{element.name}}</mat-header-cell>
+            </ng-container>
+
+            <ng-container matColumnDef="Sigla">
+                <mat-header-cell *matHeaderCellDef>Sigla</mat-header-cell>
+                <mat-header-cell *matCellDef="let element">{{element.initials}}</mat-header-cell>
+            </ng-container>
+
+            <ng-container matColumnDef="Opções">
+                <mat-header-cell *matHeaderCellDef>Opções</mat-header-cell>
+                <mat-cell *matCellDef="let row">
+                    <a class="button" [routerLink]="['functionaries', row.id]">
+                        <button class="btn">
+                            <span class="material-icons">
+                                groups
+                            </span>
+                        </button>
+                    </a>
+                    <button class= "btn" (click)="onEdit(row)">
+                        <span class="material-icons">
+                            edit
+                        </span>
+                    </button>
+                    <button class= "btn" (click)="onDelete(row.id)">
+                        <span class="material-icons">
+                            delete
+                        </span>
+                    </button>
+                </mat-cell>
+            </ng-container>
+        </mat-table>
+    </div>
+</div>
+
+<button class="mt-2" mat-raised-button (click)="onCreate()" color="primary">Novo Departamento</button>

@@ -1,0 +1,66 @@
+<div class="d-flex justify-content-between m-3">
+    <h4>Novo Funcionário</h4>
+    
+    <button class="btn" (click)="onClose()">
+        <span class="material-icons">
+            close
+        </span>
+    </button>
+    
+    </div>
+    
+    <div style="overflow: auto; height: 450px;">
+        <form #form="ngForm" (submit)="onSubmit(form)" autocomplete="off">
+            <img [src]="service.form_data.image" class="functionary-image" />
+
+            <div class="mt-3 input-group">
+                <div class="input-group-prepend">
+                    <span class="input-group-text">Nome</span>
+                </div>
+                <input required minlength="2" type="text"
+                class="form-control"
+                name="name"
+                #name="ngModel"
+                [(ngModel)]="service.form_data.name">
+            </div>
+            <div class="text-left text-danger"
+            *ngIf="name.invalid && name.touched">
+            Por favor, estabeleça um nome ao funcionário.
+        </div>
+
+            <div class="mt-3 input-group">
+                <div class="input-group-prepend">
+                    <span class="input-group-text">RG</span>
+                </div>
+                <input required minlength="2" type="text"
+                class="form-control"
+                name="RG"
+                #RG="ngModel"
+                [(ngModel)]="service.form_data.RG">
+            </div>
+            <div class="text-left text-danger"
+            *ngIf="RG.invalid && RG.touched">
+            Por favor, estabeleça uma RG ao funcionário.
+        </div>
+
+        <div class="mt-3 input-group">
+            <div class="input-group-prepend">
+                <span class="input-group-text">Foto</span>
+            </div>
+            <div class="form-control">
+                <label for="file"></label>
+                <input type="file"
+                       id="file"
+                       accept="image/*"
+                       (change)="onFileChange($event.target)">
+            </div>
+            
+    </div>
+
+        
+    <button class="mt-3" mat-raised-button
+    color="primary" type="submit"
+    [disabled]="form.invalid">Adicionar Novo Funcionário</button>
+
+    </form>
+</div>
