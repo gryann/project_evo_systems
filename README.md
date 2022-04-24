@@ -21,7 +21,7 @@ Rodar estes comandos na pasta backend:
 
 A API será rodada no endereço http://localhost:3000/.
 
-Para rodar o front-end do projeto, é necessário rodar estes comandos:
+Para rodar o front-end do projeto, é necessário rodar estes comandos na pasta frontend:
 
     npm install
     npm start 
