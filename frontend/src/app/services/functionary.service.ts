@@ -46,12 +46,13 @@ export class FunctionaryService {
         formData.append('file', file, file.name);
         this.http.post(this.APIUrl+ '/' + resp.id + '/images', formData).subscribe(resp => {
           resetForm(form)
-          snackBar.open('Funcionário Cadastrado com Sucesso!', '', {
-            duration: 5000,
-            verticalPosition: 'top'
-          });
         })
       }
+      snackBar.open('Funcionário Cadastrado com Sucesso!', '', {
+        duration: 5000,
+        verticalPosition: 'top'
+      });
+      resetForm(form)
     }
     );
   }

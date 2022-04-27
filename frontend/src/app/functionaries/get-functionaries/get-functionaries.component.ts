@@ -29,7 +29,12 @@ export class GetFunctionariesComponent implements OnInit {
     public departamentService: DepartamentService,
     private activatedRoute: ActivatedRoute,
     private dialog: MatDialog,
-    public snackBar: MatSnackBar) { }
+    public snackBar: MatSnackBar) { 
+      this.functionaryService.listen().subscribe((m: any) =>{
+        console.log(m);
+        this.refreshFunctionariesList();
+      })
+    }
 
   ngOnInit(): void {
     this.activatedRoute.params.subscribe(params => {

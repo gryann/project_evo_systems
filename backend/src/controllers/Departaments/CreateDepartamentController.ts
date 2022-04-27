@@ -2,7 +2,7 @@ import { Request, Response } from "express";
 import { CreateDepartamentService } from "../../services/Departaments/CreateDepartamentService";
 
 
-export class CreateDepartametController {
+export class CreateDepartamentController {
     async handle(request: Request, response: Response) {
         try {
             const { name, initials } = request.body;

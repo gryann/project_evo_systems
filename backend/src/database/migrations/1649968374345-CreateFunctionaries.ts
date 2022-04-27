@@ -20,7 +20,7 @@ export class CreateFunctionaries implements MigrationInterface {
                     {
                         name: "image",
                         type: "varchar",
-                        isUnique: true
+                        isUnique: false
                     },
                     {
                         name: "RG",

@@ -6,10 +6,10 @@ export class GetAllFunctionaryService {
         const repo = getRepository(Functionary);
         
         // SELECT * FROM functionaries;
-        const functionmaries = await repo.find({
+        const functionaries = await repo.find({
             relations: ["departament"],
         });
         
-        return functionmaries;
+        return functionaries;
     }
 }

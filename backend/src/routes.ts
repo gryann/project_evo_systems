@@ -1,7 +1,7 @@
 import { Router, Request, Response, request } from "express";
 import multer from "multer";
 
-import { CreateDepartametController } from "./controllers/Departaments/CreateDepartamentController";
+import { CreateDepartamentController } from "./controllers/Departaments/CreateDepartamentController";
 import { CreateFunctionaryController } from "./controllers/Functionaries/CreateFunctionaryController";
 import { DeleteDepartamentController } from "./controllers/Departaments/DeleteDepartamentController";
 import { DeleteFunctionaryController } from "./controllers/Functionaries/DeleteFunctionaryController";
@@ -22,7 +22,7 @@ const routes = Router();
 // GET = SELECT
 // PATCH = UPDATE
 // DELETE = DELETE
-routes.post("/departaments", new CreateDepartametController().handle);
+routes.post("/departaments", new CreateDepartamentController().handle);
 routes.get("/departaments", new GetAllDepartamentController().handle);
 routes.get("/departaments/:id", new GetOneDepartamentController().handle);
 routes.patch("/departaments/:id", new UpdateDepartamentController().handle);
