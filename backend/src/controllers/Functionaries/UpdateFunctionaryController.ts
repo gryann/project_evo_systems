@@ -10,7 +10,7 @@ export class UpdateFunctionaryController {
             const { id } = request.params
             
             const result = await service.execute({ id, name, image, RG, id_departament });
-            console.log(result)
+
             if (result instanceof Error) {
                 return response.status(404).json(result.message);
             }
